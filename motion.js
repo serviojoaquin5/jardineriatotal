@@ -1,10 +1,10 @@
 (() => {
   "use strict";
   const root = document.documentElement;
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const reducedMotion = { get matches() { return root.dataset.motion === "reduced"; } };
   const loader = document.getElementById("site-loader");
   const loaderSkip = document.getElementById("loader-skip");
-  const loadingTargets = [...document.querySelectorAll(".skip-link, .site-header, main, .footer, .whatsapp-float, .back-to-top")];
+  const loadingTargets = [...document.querySelectorAll(".skip-link, .site-header, main, .footer, .whatsapp-float, .back-to-top, .motion-toggle")];
   let loadingFinished = false;
 
   if (root.classList.contains("is-loading")) {
@@ -190,7 +190,7 @@
       });
     }
   });
-  reducedMotion.addEventListener("change", () => {
+  root.addEventListener("jardineria:motionchange", () => {
     if (reducedMotion.matches) {
       root.classList.remove("motion-enabled");
       reveals.forEach(node => node.classList.add("is-visible"));
@@ -203,6 +203,6 @@
       });
       detailAnimations.clear();
       finishLoading();
-    }
+    } else root.classList.add("motion-enabled");
   });
 })();

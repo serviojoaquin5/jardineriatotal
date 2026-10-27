@@ -162,3 +162,14 @@ html:not(.js) .site-header{background:var(--cream)}
   .js .hero-content{padding-top:calc(var(--header-height) + 24px);padding-bottom:80px}
   .hero-bottom{bottom:calc(22px + env(safe-area-inset-bottom,0px))}
 }
+
+/* Longer brand loading and coordinated section entrances. */
+.site-loader{transition:opacity .5s var(--ease-out),visibility .5s}
+.sections-enabled .section-stage{transition:opacity .85s var(--ease-out),transform .85s var(--ease-out);opacity:1;transform:none}
+.sections-enabled .section-stage:not(.section-entered){opacity:0;transform:translateY(26px)}
+.sections-enabled .section-stage:focus-within{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  .site-loader{transition:opacity .22s ease-out,visibility .22s!important}
+  .sections-enabled .section-stage{transition:opacity .45s ease-out!important;transform:none!important}
+}
+@media print{.site-loader,.back-to-top,.whatsapp-float{display:none!important}.sections-enabled .section-stage,.motion-enabled .reveal{opacity:1!important;transform:none!important}html.is-loading{overflow:visible}}

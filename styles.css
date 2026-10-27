@@ -270,3 +270,12 @@ html:not(.js) .comparison-range,html:not(.js) .comparison-divider{display:none}
 .social-links .button-social:hover{background:var(--cream);color:var(--forest)}
 .social-links .button-social svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6}
 @media(max-width:760px){.service-grid.service-grid-real{grid-template-columns:1fr;gap:18px}.service-grid-real .service-image{height:260px}.service-grid-real .service-body{min-height:230px}.service-coverage{align-items:start}.service-coverage>span{width:100%;margin-left:30px}.contact-phone{font-size:32px}.contact-channels{margin-top:27px}}
+/* Display the new project photos at their original proportions. */
+.work-gallery{display:block;columns:3;column-gap:18px}
+.work-gallery>.work-photo,.work-gallery>.work-video{width:100%;break-inside:avoid;margin:0 0 18px}
+.work-gallery>.work-photo{display:block;aspect-ratio:auto}
+.work-gallery .work-photo>img{width:100%;height:auto;object-fit:contain}
+html.cinema-ready .work-gallery .work-photo .cinema-image{transform:none!important;translate:none!important}
+@media(max-width:960px){.work-gallery{columns:2}}
+@media(max-width:760px){.work-gallery{column-gap:12px}.work-gallery>.work-photo,.work-gallery>.work-video{margin-bottom:12px}}
+@media(max-width:480px){.work-gallery{columns:1}}

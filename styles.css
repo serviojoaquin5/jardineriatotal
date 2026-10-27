@@ -209,3 +209,6 @@ html[data-motion="reduced"] .cinema-frame{clip-path:none}
 html[data-motion="reduced"] .cinema-image,html[data-motion="reduced"] .hero-content,html[data-motion="reduced"] .hero-image{translate:none}
 @media(max-width:760px){.motion-toggle{left:14px;bottom:24px;padding:8px 11px;font-size:10px;gap:6px}.cinema-ready[data-motion="full"] .cinema-title .title-text{transition-duration:.85s,.55s}.cinema-ready[data-motion="full"] .cinema-image{translate:0 var(--image-y,0px)}}
 @media print{.motion-toggle{display:none!important}.cinema-title .title-text{opacity:1!important;transform:none!important}.cinema-frame{clip-path:none!important}.cinema-image{transform:none!important;translate:none!important}}
+/* Keep the hero footer centered; leave room for touch controls on mobile. */
+.cinema-ready .hero-bottom{animation:none}
+@media(max-width:760px){.cinema-ready .hero-bottom{display:none}}

@@ -1,14 +1,11 @@
 (() => {
   const root = document.documentElement;
   root.classList.add("js", "is-loading");
-  let motionChoice;
-  try { motionChoice = localStorage.getItem("jardineria-motion"); } catch {}
-  root.dataset.motion = motionChoice === "full" || motionChoice === "reduced" ? motionChoice :
-    (window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "reduced" : "full");
+  root.dataset.motion = "full";
   window.jardineriaBootStarted = performance.now();
   document.addEventListener("DOMContentLoaded", () => {
     if (!root.classList.contains("is-loading")) return;
-    document.querySelectorAll(".skip-link, .site-header, main, .footer, .whatsapp-float, .back-to-top, .motion-toggle").forEach(node => {
+    document.querySelectorAll(".skip-link, .site-header, main, .footer, .whatsapp-float, .back-to-top").forEach(node => {
       node.inert = true;
       node.setAttribute("data-loading-inert", "");
     });

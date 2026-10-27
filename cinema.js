@@ -1,11 +1,7 @@
 (() => {
   "use strict";
   const root = document.documentElement;
-  const systemMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
-  const toggle = document.querySelector(".motion-toggle");
-  let choice = null;
-  try { choice = localStorage.getItem("jardineria-motion"); } catch {}
   const fullMotion = () => root.dataset.motion === "full";
   let frame = 0;
   const visibleImages = new Set();
@@ -112,46 +108,10 @@
     });
   });
 
-  let titleReplays = [];
-  function refreshMotion() {
-    const full = fullMotion();
-    toggle.setAttribute("aria-pressed", String(full));
-    toggle.setAttribute("aria-label", full ? "Reducir los efectos de movimiento" : "Activar efectos completos");
-    toggle.querySelector(".motion-label").textContent = full ? "Efectos activos" : "Efectos suaves";
-    root.dispatchEvent(new CustomEvent("jardineria:motionchange"));
-    titleReplays.forEach(animation => animation.cancel());
-    titleReplays = [];
-    if (full && hero.getBoundingClientRect().bottom > 0) {
-      hero.querySelectorAll(".title-text").forEach((line, index) => {
-        if (typeof line.animate !== "function") return;
-        titleReplays.push(line.animate([
-          { opacity: 0, transform: "translateY(105%) rotate(2deg)" },
-          { opacity: 1, transform: "translateY(0) rotate(0deg)" }
-        ], { duration: 1050, delay: index * 130, easing: "cubic-bezier(.16,1,.3,1)", fill: "backwards" }));
-      });
-    }
-    scheduleFrame();
-  }
-  toggle.addEventListener("click", () => {
-    choice = fullMotion() ? "reduced" : "full";
-    root.dataset.motion = choice;
-    try { localStorage.setItem("jardineria-motion", choice); } catch {}
-    refreshMotion();
-  });
-  systemMotion.addEventListener("change", () => {
-    if (choice === "full" || choice === "reduced") return;
-    root.dataset.motion = systemMotion.matches ? "reduced" : "full";
-    refreshMotion();
-  });
   document.addEventListener("focusin", event => {
     event.target.closest?.(".cinema-frame")?.classList.add("cinema-in");
   });
   window.addEventListener("beforeprint", () => entrances.forEach(node => node.classList.add("cinema-in")));
   root.classList.add("cinema-ready");
-  toggle.hidden = false;
-  // Initial state is already applied by boot.js; don't interrupt the loader.
-  toggle.setAttribute("aria-pressed", String(fullMotion()));
-  toggle.setAttribute("aria-label", fullMotion() ? "Reducir los efectos de movimiento" : "Activar efectos completos");
-  toggle.querySelector(".motion-label").textContent = fullMotion() ? "Efectos activos" : "Efectos suaves";
   scheduleFrame();
 })();

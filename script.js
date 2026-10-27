@@ -42,7 +42,7 @@
     const source = galleryButtons[activeImage].querySelector("img");
     lightboxImage.src = source.src;
     lightboxImage.alt = source.alt;
-    lightboxCaption.textContent = source.alt + " · Imagen de referencia";
+    lightboxCaption.textContent = source.alt + " · Jardinería Total";
     lightboxCount.textContent = (activeImage + 1) + " / " + galleryButtons.length;
   }
   galleryButtons.forEach((button, index) => button.addEventListener("click", () => {

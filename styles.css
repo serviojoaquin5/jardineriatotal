@@ -247,3 +247,26 @@ html:not(.js) .comparison-range,html:not(.js) .comparison-divider{display:none}
 @media(max-width:960px){.comparison-card{padding:16px}.comparison-heading{display:block}.comparison-heading h3{margin-top:9px}.work-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){.comparisons-grid{grid-template-columns:1fr;gap:22px}.comparison-card{padding:16px}.comparison-heading{display:flex}.comparison-heading h3{margin:0;font-size:23px}.comparison-view{aspect-ratio:4/5}.works-subheading{display:block;margin-top:45px}.works-subheading h3{font-size:29px}.works-subheading p{margin-top:12px}.work-gallery{gap:12px}.work-video figcaption{font-size:17px;padding:12px}.work-video figcaption span{font-size:9px}.work-video video{height:calc(100% - 67px)}}
 @media(max-width:480px){.work-gallery{grid-template-columns:1fr}.work-photo{aspect-ratio:4/5}.work-video{aspect-ratio:4/5}.comparison-heading{align-items:start;gap:10px}.comparison-heading>span{font-size:8px}.comparison-heading h3{font-size:22px}.comparison-divider>span{width:44px;height:44px}}
+/* Confirmed services and direct business contact. */
+.service-grid.service-grid-real{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.service-grid-real .service-image{height:290px}
+.service-grid-real .service-body{min-height:240px}
+.service-coverage{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:27px 0 0;color:var(--forest);font-size:13px;line-height:1.6}
+.service-coverage svg{width:20px;height:20px;fill:none;stroke:var(--olive);stroke-width:1.5;flex:none}
+.service-coverage>span{margin-left:auto;color:var(--olive);font-size:12px;font-weight:700;letter-spacing:.03em}
+.contact-channels{margin-top:32px}
+.contact-area{display:flex;align-items:center;gap:9px;font-size:13px;color:#dce7d3;margin:0 0 12px}
+.contact-area svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5}
+.contact-phone{display:inline-flex;align-items:center;gap:18px;color:var(--cream);font:normal 34px/1.2 var(--serif);letter-spacing:-.025em}
+.contact-phone>span{font:normal 23px var(--sans);color:#cbb58d;transition:transform .25s}
+.contact-phone:hover>span{transform:translate(3px,-3px)}
+.contact-social-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:23px}
+.contact-social-actions .button{min-height:48px;padding:13px 17px;font-size:12px;gap:10px}
+.contact-social-actions svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.6;flex:none}
+.contact-channels+.contact-decoration svg{width:150px;height:150px;margin-top:24px}
+.footer-phone{display:inline-block;margin-top:14px;color:var(--cream);font-size:16px;letter-spacing:.025em}
+.footer-main>div:first-child>p{line-height:1.7}
+.social-links .button-social{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:12px 15px;border:1px solid #9dad8c80;background:#ffffff08;color:var(--cream);font-size:12px}
+.social-links .button-social:hover{background:var(--cream);color:var(--forest)}
+.social-links .button-social svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6}
+@media(max-width:760px){.service-grid.service-grid-real{grid-template-columns:1fr;gap:18px}.service-grid-real .service-image{height:260px}.service-grid-real .service-body{min-height:230px}.service-coverage{align-items:start}.service-coverage>span{width:100%;margin-left:30px}.contact-phone{font-size:32px}.contact-channels{margin-top:27px}}

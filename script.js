@@ -111,7 +111,17 @@
       anchor.href = url.href;
       anchor.target = "_blank";
       anchor.rel = "noopener noreferrer";
+      anchor.className = "button button-social";
       anchor.textContent = item.text;
+      anchor.setAttribute("aria-label", "Ver Jardinería Total en " + item.text);
+      if (item.key === "instagram") {
+        const icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        icon.setAttribute("aria-hidden", "true");
+        const use = document.createElementNS("http://www.w3.org/2000/svg", "use");
+        use.setAttribute("href", "#icon-instagram");
+        icon.append(use);
+        anchor.prepend(icon);
+      }
       socialContainer.append(anchor);
     } catch {}
   });

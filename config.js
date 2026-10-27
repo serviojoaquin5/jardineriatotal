@@ -1,9 +1,9 @@
-// Datos de contacto de la demo. Completá el número con código de país, sin + ni espacios.
+// Contacto de Jardinería Total. WhatsApp en formato internacional.
 window.JARDINERIA_CONFIG = {
-  whatsapp: "",
-  telefono: "",
-  redes: {
-    instagram: "",
-    facebook: ""
+  "whatsapp": "5491162759282",
+  "telefono": "+541162759282",
+  "redes": {
+    "instagram": "https://www.instagram.com/jardineriatotal?exln=b3ZwNTRveTZndWUy&utm_source=qr",
+    "facebook": ""
   }
 };
